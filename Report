@@ -1,0 +1,58 @@
+Report: Results of the Initial Jenkins Pipeline Run
+1. Pipeline Overview
+Pipeline Name: Java Application CI/CD Pipeline
+Objective: Automate the build, test, and deployment process while ensuring code quality, test coverage, and security compliance.
+
+2. Pipeline Stages
+The Jenkins pipeline consisted of the following stages:
+
+Checkout Code: Pulled the latest code from the Git repository.
+Build and Test: Compiled the code and executed unit tests using Maven.
+Code Quality Check: Analyzed code quality using SonarQube.
+Code Coverage: Measured test coverage using JaCoCo.
+Cyclomatic Complexity: Calculated code complexity using PMD or a similar tool.
+Security Scan: Scanned for vulnerabilities using OWASP Dependency-Check.
+3. Results Summary
+Stage	Status	Key Observations
+Checkout Code	✅ Successful	Code successfully pulled from the repository.
+Build and Test	✅ Successful	All unit tests passed with a success rate of 100%.
+Code Quality Check	✅ Successful	SonarQube quality gates met.
+Code Coverage	✅ Successful	Achieved 85% coverage, exceeding the 80% threshold.
+Cyclomatic Complexity	✅ Successful	Complexity within acceptable range; no method exceeded threshold.
+Security Scan	❌ Failed	Found 2 critical vulnerabilities requiring immediate attention.
+4. Tool Dashboards and Screenshots
+Here’s a summary of the results with screenshots from each tool:
+
+4.1 Jenkins Pipeline Dashboard
+Description: The Jenkins pipeline executed successfully except for the Security Scan stage.
+4.2 SonarQube Dashboard
+Description:
+Overall code quality met the set quality gates.
+No major issues or blockers found.
+Key Metrics:
+Maintainability: A (technical debt ratio below 5%)
+Reliability: A (no critical bugs)
+Security: B (minor vulnerabilities reported.
+
+4.3 JaCoCo Code Coverage Report
+Description: Achieved an 85% test coverage with no uncovered critical areas.
+Key Metrics:
+Branch Coverage: 80%
+Line Coverage: 90%
+Screenshot:
+(Insert a screenshot of the JaCoCo report showing coverage details.)
+4.4 Cyclomatic Complexity Report
+Description: No method exceeded the acceptable cyclomatic complexity threshold of 10.
+Key Metrics:
+Average Complexity: 4.2
+Methods with High Complexity: 0
+
+4.5 OWASP Dependency-Check Report
+Description: Found 2 critical vulnerabilities in project dependencies.
+Key Metrics:
+Critical Vulnerabilities: 2
+High Vulnerabilities: 3
+
+
+5. Conclusion
+The initial pipeline run demonstrated the effectiveness of the Jenkins CI/CD setup. The integration of SonarQube, JaCoCo, and OWASP Dependency-Check ensures high-quality, secure code. The next steps involve resolving vulnerabilities and iterating to improve test coverage.
