@@ -39,7 +39,7 @@ stage('Code Coverage') {
         stage('Security Scan') {
             steps {
                 echo "Running OWASP Dependency-Check..."
-                sh "$DEPENDENCY_CHECK_PATH/dependency-check.sh --scan . --format HTML --out dependency-check-report"
+                sh "$/opt/dependency-check/dependency-check.sh --scan . --format HTML --out dependency-check-report"
                 archiveArtifacts artifacts: 'dependency-check-report/*.html', fingerprint: true
             }
         }    
