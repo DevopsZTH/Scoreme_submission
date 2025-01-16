@@ -1,0 +1,122 @@
+1. Introduction
+This document provides instructions for setting up and using the Jenkins CI/CD pipeline. The pipeline integrates Git, SonarQube, JaCoCo, Lizard, OWASP Dependency-Check, and notification services to ensure high-quality software development.
+
+2. Prerequisites
+2.1 System Requirements
+Jenkins installed on a server (local or cloud-based).
+Java Development Kit (JDK) installed (version 11 or later).
+Maven installed and configured.
+Access to a Git repository (GitHub/GitLab/Bitbucket).
+SonarQube server configured and running.
+OWASP Dependency-Check CLI installed.
+2.2 Jenkins Plugins
+Ensure the following plugins are installed in Jenkins:
+
+Git Plugin
+Pipeline Plugin
+SonarQube Scanner Plugin
+OWASP Dependency-Check Plugin
+Email Extension Plugin
+HTML Publisher Plugin
+3. Setup and Configuration
+3.1 Jenkins Configuration
+Install Plugins:
+
+Go to Manage Jenkins > Manage Plugins.
+Install the plugins listed in Section 2.2.
+Configure Tools:
+
+Navigate to Manage Jenkins > Global Tool Configuration.
+Add and configure the following:
+JDK: Add JDK 11 or later.
+Maven: Add Maven with the appropriate installation path.
+SonarQube Server Configuration:
+
+Go to Manage Jenkins > Configure System.
+Under SonarQube servers, add your server details:
+Name: SonarQube
+Server URL: http://<your-sonarqube-server-url>
+Authentication Token: Add a credential for SonarQube token.
+Email Notifications:
+
+Under Manage Jenkins > Configure System, set up the SMTP server:
+SMTP Server: Provide your email provider’s SMTP details.
+Email Address: Add a default email address for notifications.
+OWASP Dependency-Check Path:
+
+Install OWASP Dependency-Check CLI and note its installation path.
+Add this path as an environment variable in the Jenkinsfile.
+3.2 Repository Configuration
+Create a Git Repository:
+Add the project code to a Git repository (GitHub/GitLab/Bitbucket).
+Include the Jenkinsfile in the root of the repository.
+Grant Jenkins Access:
+Use an SSH key or a personal access token for Jenkins to pull code from the repository.
+4. Pipeline Setup
+Create a Jenkins Job:
+
+Go to Jenkins Dashboard and click New Item.
+Select Pipeline and provide a name (e.g., "My CI/CD Pipeline").
+Configure the Pipeline:
+
+Under the pipeline configuration:
+Definition: Choose Pipeline script from SCM.
+SCM: Select Git.
+Repository URL: Add your repository URL.
+Branch: Use main or the appropriate branch name.
+Script Path: Enter Jenkinsfile.
+Save the Job:
+
+Click Save to complete the job creation.
+5. Usage
+5.1 Triggering the Pipeline
+The pipeline is configured to trigger automatically on every commit to the main branch.
+To trigger manually:
+Go to the job in Jenkins and click Build Now.
+5.2 Pipeline Stages
+Checkout Code:
+Pulls the latest code from the Git repository.
+Build Code:
+Compiles the project using Maven.
+Code Quality Analysis:
+Runs SonarQube analysis and enforces quality gates.
+Code Coverage:
+Generates a code coverage report using JaCoCo.
+Cyclomatic Complexity:
+Calculates complexity using Lizard.
+Security Scan:
+Scans dependencies for vulnerabilities using OWASP Dependency-Check.
+Publish Reports:
+Publishes code coverage and security scan reports in HTML format.
+6. Accessing Reports
+SonarQube Reports:
+
+Log in to your SonarQube server and navigate to the project dashboard.
+Code Coverage Report:
+
+Available under Pipeline Run > Code Coverage Report in Jenkins.
+Cyclomatic Complexity Report:
+
+Download the lizard_report.txt artifact from the Jenkins job.
+Security Scan Report:
+
+Access the dependency-check-report.html artifact from Jenkins.
+7. Notifications
+Email notifications are sent to the configured email address for both success and failure scenarios.
+To configure additional notifications (e.g., Slack), install and configure the relevant plugins.
+8. Troubleshooting
+8.1 Common Issues
+Pipeline Fails During SonarQube Analysis:
+
+Check if the SonarQube server is running and accessible.
+Ensure the sonar-project.properties file is correctly configured in the repository.
+OWASP Dependency-Check Not Found:
+
+Verify the DEPENDENCY_CHECK_PATH is correctly set in the Jenkinsfile.
+Email Notifications Not Sent:
+
+Check SMTP server configuration under Manage Jenkins > Configure System.
+9. References
+Jenkins Official Documentation
+SonarQube Documentation
+OWASP Dependency-Check CLI
