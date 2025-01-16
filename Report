@@ -17,7 +17,7 @@ Stage	Status	Key Observations
 Checkout Code	✅ Successful	Code successfully pulled from the repository.
 Build and Test	✅ Successful	All unit tests passed with a success rate of 100%.
 Code Quality Check	✅ Successful	SonarQube quality gates met.
-Code Coverage	✅ Successful	Achieved 85% coverage, exceeding the 80% threshold.
+Code Coverage	✅ Successful	Achieved 100% coverage, exceeding the 80% threshold.
 Cyclomatic Complexity	✅ Successful	Complexity within acceptable range; no method exceeded threshold.
 Security Scan	❌ Failed	Found 2 critical vulnerabilities requiring immediate attention.
 4. Tool Dashboards and Screenshots
