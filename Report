@@ -18,7 +18,6 @@ Checkout Code	✅ Successful	Code successfully pulled from the repository.
 Build and Test	✅ Successful	All unit tests passed with a success rate of 100%.
 Code Quality Check	✅ Successful	SonarQube quality gates met.
 Code Coverage	✅ Successful	Achieved 100% coverage, exceeding the 80% threshold.
-Cyclomatic Complexity	✅ Successful	Complexity within acceptable range; no method exceeded threshold.
 Security Scan	❌ Failed	Found 2 critical vulnerabilities requiring immediate attention.
 4. Tool Dashboards and Screenshots
 Here’s a summary of the results with screenshots from each tool:
@@ -41,13 +40,7 @@ Branch Coverage: 80%
 Line Coverage: 90%
 Screenshot:
 (Insert a screenshot of the JaCoCo report showing coverage details.)
-4.4 Cyclomatic Complexity Report
-Description: No method exceeded the acceptable cyclomatic complexity threshold of 10.
-Key Metrics:
-Average Complexity: 4.2
-Methods with High Complexity: 0
-
-4.5 OWASP Dependency-Check Report
+4.4 OWASP Dependency-Check Report
 Description: Found 2 critical vulnerabilities in project dependencies.
 Key Metrics:
 Critical Vulnerabilities: 2
